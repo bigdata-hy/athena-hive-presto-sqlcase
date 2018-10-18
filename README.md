@@ -6,7 +6,19 @@ The memo about hive sql
 
 * JSONサンプル：
 ```JSON
-{"class" : "apple","number" : "12","students" : {"jack":{"gender" : "male","age" : "20"},"rose":{"gender" : "female","age" : "22"}}}
+{
+  "class" : "apple",
+  "number" : "12",
+  "students" : {
+    "jack":{
+      "gender" : "male",
+      "age" : "20"},
+      "rose":{
+        "gender" : "female",
+        "age" : "22"
+      }
+    }
+  }
 ```
 
 * create table sql
@@ -37,7 +49,9 @@ SELECT * FROM "sampledb"."sample7"
 
 ```sql
 
-select class,number,name ,others.gender,others.age from sample7 cross join unnest (students) as t (name, others);
+select class,number,name ,others.gender,others.age
+from sample7
+cross join unnest (students) as t (name, others);
 
 1	apple	12	rose	female	22
 2	apple	12	jack	male	20
