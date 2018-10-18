@@ -24,15 +24,13 @@ The memo about hive sql
 * create table sql
 
 ```sql
-CREATE EXTERNAL TABLE sample4 (
+CREATE EXTERNAL TABLE sampledb.sample7 (
   class string,
   number string,
-  students struct <
-            string:struct<gender:string,age:string>,rose:struct<gender:string,age:string>
-  >
+  students map<string,struct<gender:string,age:string>>
   )           
 ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-LOCATION 's3://yuhu-test-athena/serjson/'
+LOCATION 's3://yuhu-test-athena/serjson/' 
 ```
 
 * search result  
